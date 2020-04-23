@@ -3,7 +3,7 @@ package com.reciclap.model;
 public class Empresa {
 
 	private long id;
-	private String name;
+	private String nome;
 	private String email;
 	private String senha;
 	private String cnpj;
@@ -22,10 +22,10 @@ public class Empresa {
 		this.id = id;
 	}
 	public String getName() {
-		return name;
+		return nome;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String nome) {
+		this.nome = nome;
 	}
 	public String getEmail() {
 		return email;
