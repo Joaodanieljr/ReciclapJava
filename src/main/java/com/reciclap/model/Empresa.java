@@ -11,10 +11,6 @@ public class Empresa {
 	private String estado;
 	private String telefone;
 	
-	
-	
-	
-	
 	public long getId() {
 		return id;
 	}
