@@ -2,21 +2,102 @@
 <html xmlns:th="http://thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+	
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<link type="text/css" rel="stylesheet" href="css/style.css"  />
+	
+
 	<title>ReciclAP</title>
 </head>
-
 <body>
-	Nome: <input type="String" value="" name="nome"/>
-	Email: <input type="String" value="" name="email"/>
-	Senha: <input type="password" value="" name="senha"/>
-	CNPJ: <input type="number" value="" name="cnpj"/>
-	CEP: <input type="number" value="" name="cep"/>
-	Estado: <input type="String" value="" name="estado"/>
-	Telefone: <input type="tel" value="" name="telefone"/>
+	<nav class="#ffffff white">
+     <div class="imgreciclap">
+     <center>
+     <img src="img/reciclaplogo.png" width="130px" alt="">
+     </center>
+     </div>
+   </nav>
+        
+<div class="tela">
 
-	<button type="submit">Salvar</button>
+<h3><a href="/Empresa" class="waves-effect waves-light btn" ><i class="material-icons left">format_list_bulleted</i>Voltar</a></h3>
+
+<form class="container" method="post">
 	
-<html>	
+	<div class="row">
+        <div class="input-field col s9">
+          <i class="material-icons prefix">work</i>
+          <textarea id="icon_prefix1" class="materialize-textarea" name="nome"></textarea>
+          <label for="icon_prefix1">Nome</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s9">
+          <i class="material-icons prefix">email</i>
+          <textarea id="icon_prefix2" class="materialize-textarea" name="email"></textarea>
+          <label for="icon_prefix2">Email</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s9" >
+          <i class="material-icons prefix">lock</i>
+          <textarea id="icon_prefix3" class="materialize-textarea" name="senha"></textarea>
+          <label for="icon_prefix3" >Senha</label>
+        </div>
+      </div>
+	
+	<div class="row">
+        <div class="input-field col s9">
+          <i class="material-icons prefix">location_city</i>
+          <textarea id="icon_prefix4" class="materialize-textarea" name="cnpj"></textarea>
+          <label for="icon_prefix4">CNPJ</label>
+        </div>
+      </div>
+	
+	<div class="row">
+        <div class="input-field col s9">
+          <i class="material-icons prefix">public</i>
+          <textarea id="icon_prefix5" class="materialize-textarea" name="cep"></textarea>
+          <label for="icon_prefix5">CEP</label>
+        </div>
+      </div>
+	
+	<div class="row">
+        <div class="input-field col s9">
+          <i class="material-icons prefix">location_on</i>
+          <textarea id="icon_prefix6" class="materialize-textarea" name="estado"></textarea>
+          <label for="icon_prefix6">Estado</label>
+        </div>
+      </div>
+	
+	<div class="row">
+        <div class="input-field col s9">
+          <i class="material-icons prefix">phone</i>
+          <textarea id="icon_prefix7" class="materialize-textarea" name="telefone"></textarea>
+          <label for="icon_prefix7">Telefone</label>
+        </div>
+      </div>
+	
 
-</html>
+	<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+	<br>
+	<br>
+</form>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+
+ </html>
 
