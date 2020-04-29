@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="utf-8"/>
 <html xmlns:th="http://thymeleaf.org"
 		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
@@ -42,8 +43,43 @@
 
 	</div>
 	
+	<br>
+	<br>
 	<h3><a href="/CadastraMaterial" class="waves-effect waves-light btn" ><i class="material-icons right">add_circle_outline</i>Adicionar Produto Reciclavel</a></h3>
+
+	<div  th:each="material : ${materiais}">
 	
+	<h3 class="h3_tabelaDetalhes">Produtos Relacionados a Empresa</h3>
+	<table class="striped">
+		<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Composição</th>
+			<th>Tipo de Reciclagem</th>
+			<th>Decomposição</th>
+			<th>Reciclado</th>
+			<th>Empresa Responsavel</th>		
+		</tr>
+		</thead>
+		<tbody>
+			<tr th:each="material : ${materiais}">
+			<td><span th:text="${material.idMaterial}"></span></td>
+			<td><span th:text="${material.nome}"></span></td>
+			<td><span th:text="${material.composicao}"></span></td>
+			<td><span th:text="${material.tipo}"></span></td>
+			<td><span th:text="${material.decomposicao}"></span></td>
+			<td><span th:text="${material.reciclado}"></span></td>
+			<td><span th:text="${material.empresa.nome}"></span></td>
+		</tr>
+		</tbody>
+		
+		   
+		
+	</table>
+	
+	
+	</div>
 
 </div>
 

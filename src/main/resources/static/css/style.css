@@ -2,8 +2,30 @@
 .tela{
 	margin-left: 10px;
 	margin-right: 10px;
+	margin-bottom: 30px;
 }
 
 .imgreciclap{
 	position:relative;
+}
+
+.h3_CadastroMaterial{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+
+
+.label_select{
+	font-size: 15px;
+	font-weight: bold;
+	color:black;
+}
+
+
+
+.h3_tabelaDetalhes{
+	font-size: 25px;
+	font-style:italic;
+	text-align: center;
 }

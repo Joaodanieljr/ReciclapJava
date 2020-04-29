@@ -21,9 +21,9 @@ public class Material  implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long idMaterial;
 	
-	private String nome;
-	private String Composicao;
-	private String Tipo;
+	public String nome;
+	private String composicao;
+	private String tipo;
 	private String decomposicao;
 	private boolean reciclado;
 	
@@ -53,16 +53,16 @@ public class Material  implements Serializable{
 		this.nome = nome;
 	}
 	public String getComposicao() {
-		return Composicao;
+		return composicao;
 	}
 	public void setComposicao(String composicao) {
-		Composicao = composicao;
+		this.composicao = composicao;
 	}
 	public String getTipo() {
-		return Tipo;
+		return tipo;
 	}
 	public void setTipo(String tipo) {
-		Tipo = tipo;
+		this.tipo = tipo;
 	}
 	public String getDecomposicao() {
 		return decomposicao;

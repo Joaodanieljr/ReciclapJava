@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<meta charset="utf-8"/>
+
 <html xmlns:th="http://thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
@@ -27,6 +29,8 @@
         
 <div class="tela">
 
+<div class="container">
+
 
 <h3><a href="/Empresa" class="waves-effect waves-light btn" ><i class="material-icons left">format_list_bulleted</i>Voltar</a></h3>
 
@@ -34,7 +38,7 @@
 
 	<div class="row">
         <div class="input-field col s9">
-          <i class="material-icons prefix">work</i>
+          <i class="material-icons prefix">library_add</i>
           <textarea id="icon_prefix1" class="materialize-textarea" name="nome"></textarea>
           <label for="icon_prefix1">Nome do Material</label>
         </div>
@@ -42,7 +46,7 @@
       
       <div class="row">
         <div class="input-field col s9">
-          <i class="material-icons prefix">email</i>
+          <i class="material-icons prefix">widgets</i>
           <textarea id="icon_prefix2" class="materialize-textarea" name="composicao"></textarea>
           <label for="icon_prefix2">Composicao</label>
         </div>
@@ -50,28 +54,50 @@
       
       <div class="row">
         <div class="input-field col s9" >
-          <i class="material-icons prefix">lock</i>
+          <i class="material-icons prefix">delete_sweep</i>
           <textarea id="icon_prefix3" class="materialize-textarea" name="tipo"></textarea>
-          <label for="icon_prefix3" >Tipo</label>
+          <label for="icon_prefix3" >Tipo de Reciclagem</label>
         </div>
       </div>
 	
 	<div class="row">
         <div class="input-field col s9">
-          <i class="material-icons prefix">location_city</i>
+          <i class="material-icons prefix">local_florist</i>
           <textarea id="icon_prefix4" class="materialize-textarea" name="decomposicao"></textarea>
           <label for="icon_prefix4">Decomposicao</label>
         </div>
       </div>
       
-		<label>Empresas</label>
-				<select name="id" class="browser-default">
-					<option value="">Selecione</option>
-					<option th:each="e:${empresas}"
-							th:value="${e.id}" 
-							th:text="${e.nome}">
-					</option>
-				</select>
+      <div>
+      <h3 class="h3_CadastroMaterial">Material é Reciclado? </h3>
+       <p>
+       <label>
+        <input class="with-gap" name="reciclado" type="radio" value="1"  />
+        <span>Sim</span>
+      </label>
+    </p>
+     <p>
+       <label>
+        <input class="with-gap" name="reciclado" type="radio" value="0"  />
+        <span>Não</span>
+      </label>
+    </p>
+    
+    <br>
+    
+    <br>
+  
+  </div>
+		<label class= "label_select"><b>Empresa:</b></label>
+		<br>
+		<br>
+			<select name="id" class="browser-default">
+				<option value="">Selecione</option>
+				<option th:each="e:${empresas}"
+						th:value="${e.id}" 
+						th:text="${e.nome}">
+				</option>
+			</select>
 
 		<br>
 		<br>
@@ -83,6 +109,7 @@
 	<br>
 
 </form>
+</div>
 </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <!--JavaScript at end of body for optimized loading-->

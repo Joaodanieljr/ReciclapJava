@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.reciclap.model.Empresa;
+import com.reciclap.model.Material;
 import com.reciclap.repository.EmpresaRepository;
 import com.reciclap.repository.MaterialRepository;
 
@@ -44,17 +45,11 @@ public class EmpresaController {
 		Empresa empresa = er.findById(id);
 		ModelAndView mv = new ModelAndView("empresa/detalhesEmpresa");
 		mv.addObject("empresa",empresa);
+		
+		Iterable<Material> materiais = mr.findByEmpresa(empresa);
+		mv.addObject("materiais", materiais);
+		
 		return mv;
 	}
-	
-	
-	
-	/*@RequestMapping(value="material/{id}", method=RequestMethod.GET)
-	public ModelAndView cadastraMaterial(@PathVariable("id") long id){
-		Empresa empresa = er.findById(id);
-		ModelAndView mv = new ModelAndView("material/formCadastroMaterial");
-		mv.addObject("empresa",empresa);
-		return mv;
-	}*/
 	
 }

@@ -29,31 +29,29 @@
    </nav>
 	
 <div class="tela">
-	<h3><a href="/CadastraEmpresa" class="waves-effect waves-light btn" >Cadastrar Empresa</a></h3>
+	<h3><a href="/CadastraMaterial" class="waves-effect waves-light btn" ><i class="material-icons right">add_circle_outline</i>Adicionar Produto Reciclavel</a></h3>
 	
 	<table class="striped">
 		<thead>
 		<tr>
 			<th>Id</th>
 			<th>Nome</th>
-			<th>Email</th>
-			<th>Senha</th>
-			<th>CNPJ</th>
-			<th>CEP</th>
-			<th>Estado</th>
-			<th>Telefone</th>		
+			<th>Composição</th>
+			<th>Tipo de Reciclagem</th>
+			<th>Decomposição</th>
+			<th>Reciclado</th>
+			<th>Empresa Responsavel</th>		
 		</tr>
 		</thead>
 		<tbody>
-			<tr th:each="empresa : ${empresas}">
-			<td><span th:text="${empresa.id}"></span></td>
-			<td ><a th:href="${(#mvc.url('EC#detalhesEmpresa').arg(0, empresa.id)).build()}"> <span th:text="${empresa.nome}"></span></a></td>
-			<td ><span th:text="${empresa.email}"></span></td>
-			<td><span th:text="${empresa.senha}"></span></td>
-			<td><span th:text="${empresa.cnpj}"></span></td>
-			<td><span th:text="${empresa.cep}"></span></td>
-			<td><span th:text="${empresa.estado}"></span></td>
-			<td><span th:text="${empresa.telefone}"></span></td>
+			<tr th:each="material : ${materiais}">
+			<td><span th:text="${material.idMaterial}"></span></td>
+			<td><span th:text="${material.nome}"></span></td>
+			<td><span th:text="${material.composicao}"></span></td>
+			<td><span th:text="${material.tipo}"></span></td>
+			<td><span th:text="${material.decomposicao}"></span></td>
+			<td><span th:text="${material.reciclado}"></span></td>
+			<td><span th:text="${material.empresa.nome}"></span></td>
 		</tr>
 		</tbody>
 		

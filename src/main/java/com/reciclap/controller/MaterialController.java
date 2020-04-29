@@ -2,12 +2,9 @@ package com.reciclap.controller;
 
 
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,6 +23,14 @@ public class MaterialController {
 
 		@Autowired 
 		MaterialRepository mr;
+		
+		@RequestMapping("/Material")
+		public ModelAndView listaMateriais(){
+			ModelAndView mv = new ModelAndView("material/indexMaterial");
+			Iterable<Material> materiais = mr.findAll();
+			mv.addObject("materiais", materiais);
+			return mv;
+		}
 		
 		@RequestMapping("/CadastraMaterial")
 		public ModelAndView CadastraMaterial(){
