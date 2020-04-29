@@ -27,71 +27,60 @@
         
 <div class="tela">
 
+
 <h3><a href="/Empresa" class="waves-effect waves-light btn" ><i class="material-icons left">format_list_bulleted</i>Voltar</a></h3>
 
-<form class="container" th:object="${empresa}" method="post">
+<form class="container"  method="get">
 	
 	<div class="row">
         <div class="input-field col s9">
           <i class="material-icons prefix">work</i>
           <textarea id="icon_prefix1" class="materialize-textarea" name="nome"></textarea>
-          <label for="icon_prefix1">Nome</label>
+          <label for="icon_prefix1">Nome do Material</label>
         </div>
       </div>
       
       <div class="row">
         <div class="input-field col s9">
           <i class="material-icons prefix">email</i>
-          <textarea id="icon_prefix2" class="materialize-textarea" name="email"></textarea>
-          <label for="icon_prefix2">Email</label>
+          <textarea id="icon_prefix2" class="materialize-textarea" name="composicao"></textarea>
+          <label for="icon_prefix2">Composicao</label>
         </div>
       </div>
       
       <div class="row">
         <div class="input-field col s9" >
           <i class="material-icons prefix">lock</i>
-          <textarea id="icon_prefix3" class="materialize-textarea" name="senha"></textarea>
-          <label for="icon_prefix3" >Senha</label>
+          <textarea id="icon_prefix3" class="materialize-textarea" name="tipo"></textarea>
+          <label for="icon_prefix3" >Tipo</label>
         </div>
       </div>
 	
 	<div class="row">
         <div class="input-field col s9">
           <i class="material-icons prefix">location_city</i>
-          <textarea id="icon_prefix4" class="materialize-textarea" name="cnpj"></textarea>
-          <label for="icon_prefix4">CNPJ</label>
+          <textarea id="icon_prefix4" class="materialize-textarea" name="decomposicao"></textarea>
+          <label for="icon_prefix4">Decomposicao</label>
         </div>
       </div>
 	
-	<div class="row">
-        <div class="input-field col s9">
-          <i class="material-icons prefix">public</i>
-          <textarea id="icon_prefix5" class="materialize-textarea" name="cep"></textarea>
-          <label for="icon_prefix5">CEP</label>
-        </div>
-      </div>
+    
+
+		<label>Empresas</label>
+				<select name="produtao" class="browser-default">
+					<option value="">Selecione</option>
+					<option th:each="e:${empresas}"
+							th:value="${e.id}" 
+							th:text="${e.nome}">
+					</option>
+				</select>
 	
-	<div class="row">
-        <div class="input-field col s9">
-          <i class="material-icons prefix">location_on</i>
-          <textarea id="icon_prefix6" class="materialize-textarea" name="estado"></textarea>
-          <label for="icon_prefix6">Estado</label>
-        </div>
-      </div>
-	
-	<div class="row">
-        <div class="input-field col s9">
-          <i class="material-icons prefix">phone</i>
-          <textarea id="icon_prefix7" class="materialize-textarea" name="telefone"></textarea>
-          <label for="icon_prefix7">Telefone</label>
-        </div>
-      </div>
-	
-				<br>
+		<br>
 			<br>
 			
-			<br>	
-
+			<br>
+		
+		
 	<button class="waves-effect waves-light btn" type="submit">Salvar</button>
 	<br>
 	<br>

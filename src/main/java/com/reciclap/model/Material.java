@@ -1,27 +1,56 @@
 package com.reciclap.model;
 
-public class Material {
+import java.io.Serializable;
 
-	private long id;
-	private String name;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table (name="TB_MATERIAL")
+public class Material  implements Serializable{
+
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long idMaterial;
+	
+	private String nome;
 	private String Composicao;
 	private String Tipo;
 	private String decomposicao;
 	private boolean reciclado;
 	
+	@ManyToOne(cascade = {CascadeType.ALL})
+	private Empresa empresa;
 	
+	public Empresa empresa(){
+		return empresa;
+	}
 	
-	public long getId() {
-		return id;
+	public Empresa getEmpresa() {
+		return empresa;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
-	public String getName() {
-		return name;
+	public long getIdMaterial() {
+		return idMaterial;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setIdMaterial(long idMaterial) {
+		this.idMaterial = idMaterial;
+	}
+	public String getnome() {
+		return nome;
+	}
+	public void setnome(String nome) {
+		this.nome = nome;
 	}
 	public String getComposicao() {
 		return Composicao;

@@ -1,11 +1,14 @@
 package com.reciclap.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +19,7 @@ public class Empresa implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	public long id;
 	
 	private String nome;
 	private String email;
@@ -26,6 +29,15 @@ public class Empresa implements Serializable{
 	private String estado;
 	private String telefone;
 	
+	 @OneToMany(mappedBy="empresa", cascade= CascadeType.ALL)  
+	private List <Material> materiais;
+	
+	public List<Material> getMateriais() {
+		return materiais;
+	}
+	public void setMateriais(List<Material> materiais) {
+		this.materiais = materiais;
+	}
 	public long getId() {
 		return id;
 	}

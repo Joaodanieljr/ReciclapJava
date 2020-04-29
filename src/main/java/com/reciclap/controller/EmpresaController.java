@@ -9,11 +9,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.reciclap.model.Empresa;
 import com.reciclap.repository.EmpresaRepository;
+import com.reciclap.repository.MaterialRepository;
 
 @Controller
 public class EmpresaController {
 
-	@Autowired EmpresaRepository er;
+	@Autowired 
+	EmpresaRepository er;
+	
+	@Autowired 
+	MaterialRepository mr;
 	
 	@RequestMapping(value="/CadastraEmpresa", method=RequestMethod.GET)
 	public String form(){
@@ -22,7 +27,6 @@ public class EmpresaController {
 
 	@RequestMapping(value="/CadastraEmpresa", method=RequestMethod.POST)
 	public String form(Empresa empresa){
-		
 		er.save(empresa);
 		return "redirect:/Empresa"; 
 	}
@@ -35,11 +39,22 @@ public class EmpresaController {
 		return mv;
 	}
 	
-	@RequestMapping("/{id}")
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ModelAndView detalhesEmpresa(@PathVariable("id") long id){
 		Empresa empresa = er.findById(id);
 		ModelAndView mv = new ModelAndView("empresa/detalhesEmpresa");
 		mv.addObject("empresa",empresa);
 		return mv;
 	}
+	
+	
+	
+	/*@RequestMapping(value="material/{id}", method=RequestMethod.GET)
+	public ModelAndView cadastraMaterial(@PathVariable("id") long id){
+		Empresa empresa = er.findById(id);
+		ModelAndView mv = new ModelAndView("material/formCadastroMaterial");
+		mv.addObject("empresa",empresa);
+		return mv;
+	}*/
+	
 }
