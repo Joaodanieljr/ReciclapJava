@@ -30,6 +30,8 @@
 
 <h3><a href="/Empresa" class="waves-effect waves-light btn" ><i class="material-icons left">format_list_bulleted</i>Voltar</a></h3>
 
+<th:block th:include="mensagemValidacao"></th:block>
+
 <form class="container" th:object="${empresa}" method="post">
 	
 	<div class="row">
@@ -88,14 +90,14 @@
         </div>
       </div>
 	
-				<br>
-			<br>
-			
-			<br>	
+	<br>
+	<br>
+	<br>	
 
 	<button class="waves-effect waves-light btn" type="submit">Salvar</button>
 	<br>
 	<br>
+	
 </form>
 </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

@@ -41,7 +41,8 @@
 			<th>CNPJ</th>
 			<th>CEP</th>
 			<th>Estado</th>
-			<th>Telefone</th>		
+			<th>Telefone</th>
+			<th>Deletar</th>			
 		</tr>
 		</thead>
 		<tbody>
@@ -54,6 +55,7 @@
 			<td><span th:text="${empresa.cep}"></span></td>
 			<td><span th:text="${empresa.estado}"></span></td>
 			<td><span th:text="${empresa.telefone}"></span></td>
+			<td ><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deletarEmpresa').arg(0, empresa.id)).build()}"><i class="material-icons prefix">delete</i></a></td>
 		</tr>
 		</tbody>
 		

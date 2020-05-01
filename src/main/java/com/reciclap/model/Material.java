@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 @Table (name="TB_MATERIAL")
@@ -19,15 +21,23 @@ public class Material  implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long idMaterial;
+	private long id;
 	
+	@NotEmpty
 	public String nome;
+	
+	@NotEmpty
 	private String composicao;
+	
+	@NotEmpty
 	private String tipo;
+	
+	@NotEmpty
 	private String decomposicao;
+	
 	private boolean reciclado;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne
 	private Empresa empresa;
 	
 	public Empresa empresa(){
@@ -40,11 +50,11 @@ public class Material  implements Serializable{
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
-	public long getIdMaterial() {
-		return idMaterial;
+	public long getId() {
+		return id;
 	}
-	public void setIdMaterial(long idMaterial) {
-		this.idMaterial = idMaterial;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getnome() {
 		return nome;

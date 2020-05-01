@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html xmlns:th="http://thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<link rel="icon" href="data:,">
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="http://localhost:8080/materialize/css/materialize.min.css" media="screen,projection" />
+	
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<link type="text/css" rel="stylesheet" href="http://localhost:8080/css/style.css"  />
+
+	<title>ReciclAP</title>
+
+</head>
+
+<body>
+<nav class="#ffffff white">
+     <div class="imgreciclap">
+     <center>
+     <img src="http://localhost:8080/img/reciclaplogo.png" width="130px" alt="">
+     </center>
+     </div>
+   </nav>
+	
+<div class="tela">
+
+<th:block th:include="mensagemValidacao"></th:block>
+
+<form th:object="${material}" method="post">
+ 
+            <table border="0" cellpadding="10">
+                <tr>             
+                    <td>Product ID:</td>
+                    <td>
+                        <input type="text" th:field="*{id}" readonly="readonly" name="id" />
+                    </td>
+                </tr>        
+                <tr>             
+                    <td>Product Name:</td>
+                    <td>
+                        <input type="text" th:field="*{nome}" name="nome" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Brand:</td>
+                    <td><input type="text" th:field="*{composicao}" name="composicao"/></td>
+                </tr>
+                <tr>
+                    <td>Made In:</td>
+                    <td><input type="text" th:field="*{tipo}" name="tipo" /></td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td><input type="text" th:field="*{decomposicao}" name="decomposicao" /></td>
+                </tr> 
+                
+                 <tr>
+                    <td>Reciclado:</td>
+                    <td><input type="text" th:field="*{reciclado}" name="reciclado" /></td>
+                </tr>      
+                
+                 <tr>
+                    <td>codigo empresa:</td>
+                    <td><input type="long" name="codigo" th:field="*{empresa.id}" th:value="*{empresa.id}" readonly="readonly"  /></td>
+                </tr>                                 
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+
+</div>
+
+
+
+</body>
+</html>
+	

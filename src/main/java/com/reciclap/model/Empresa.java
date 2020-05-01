@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table (name="TB_EMPRESA")
@@ -21,12 +22,25 @@ public class Empresa implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	public long id;
 	
+	@NotEmpty
 	private String nome;
+	
+	@NotEmpty
 	private String email;
+	
+	@NotEmpty
 	private String senha;
+	
+	@NotEmpty
 	private String cnpj;
+	
+	@NotEmpty
 	private String cep;
+	
+	@NotEmpty
 	private String estado;
+	
+	@NotEmpty
 	private String telefone;
 	
 	 @OneToMany(mappedBy="empresa", cascade= CascadeType.ALL)  

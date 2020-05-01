@@ -1,11 +1,16 @@
 package com.reciclap.controller;
 
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.reciclap.model.Empresa;
 import com.reciclap.model.Material;
@@ -27,7 +32,11 @@ public class EmpresaController {
 	}
 
 	@RequestMapping(value="/CadastraEmpresa", method=RequestMethod.POST)
-	public String form(Empresa empresa){
+	public String form(@Valid Empresa empresa, BindingResult result, RedirectAttributes attributes){
+		if(result.hasErrors()){
+			attributes.addFlashAttribute("mensagem", "Todos os Campos São Obrigatorios");
+			return "redirect:/CadastraEmpresa";
+		}
 		er.save(empresa);
 		return "redirect:/Empresa"; 
 	}
@@ -50,6 +59,13 @@ public class EmpresaController {
 		mv.addObject("materiais", materiais);
 		
 		return mv;
+	}
+	
+	@RequestMapping("/deletar")
+	public String deletarEmpresa(long id){
+		Empresa empresa = er.findById(id);
+		er.delete(empresa);
+		return "redirect:/Empresa";
 	}
 	
 }

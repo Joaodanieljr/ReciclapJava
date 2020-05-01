@@ -40,18 +40,21 @@
 			<th>Tipo de Reciclagem</th>
 			<th>Decomposição</th>
 			<th>Reciclado</th>
-			<th>Empresa Responsavel</th>		
+			<th>Empresa Responsavel</th>
+			<th>Deletar</th>		
 		</tr>
 		</thead>
 		<tbody>
 			<tr th:each="material : ${materiais}">
-			<td><span th:text="${material.idMaterial}"></span></td>
+			<td><span th:text="${material.id}"></span></td>
 			<td><span th:text="${material.nome}"></span></td>
 			<td><span th:text="${material.composicao}"></span></td>
 			<td><span th:text="${material.tipo}"></span></td>
 			<td><span th:text="${material.decomposicao}"></span></td>
 			<td><span th:text="${material.reciclado}"></span></td>
 			<td><span th:text="${material.empresa.nome}"></span></td>
+			<td ><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('MC#deletarMaterial').arg(0, material.id)).build()}"><i class="material-icons prefix">delete</i></a></td>
+		
 		</tr>
 		</tbody>
 		
