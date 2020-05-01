@@ -1,70 +1,81 @@
 <!DOCTYPE html>
-<meta charset="utf-8"/>
+<meta charset="utf-8" />
 <html xmlns:th="http://thymeleaf.org"
-		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-	<!--Import Google Icon Font-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-	
-	<!--Import materialize.css-->
-	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
-	
-	<!--Let browser know website is optimized for mobile-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-	<link type="text/css" rel="stylesheet" href="css/style.css"  />
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
 
-	<title>ReciclAP</title>
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+<title>ReciclAP</title>
 
 </head>
 
 <body>
-<nav class="#ffffff white">
-     <div class="imgreciclap">
-     <center>
-     <img src="img/reciclaplogo.png" width="130px" alt="">
-     </center>
-     </div>
-   </nav>
-	
-<div class="tela">
-	<h3><a href="/CadastraMaterial" class="waves-effect waves-light btn" ><i class="material-icons right">add_circle_outline</i>Adicionar Produto Reciclavel</a></h3>
-	
-	<table class="striped">
-		<thead>
-		<tr>
-			<th>Id</th>
-			<th>Nome</th>
-			<th>Composição</th>
-			<th>Tipo de Reciclagem</th>
-			<th>Decomposição</th>
-			<th>Reciclado</th>
-			<th>Empresa Responsavel</th>
-			<th>Deletar</th>		
-		</tr>
-		</thead>
-		<tbody>
-			<tr th:each="material : ${materiais}">
-			<td><span th:text="${material.id}"></span></td>
-			<td><span th:text="${material.nome}"></span></td>
-			<td><span th:text="${material.composicao}"></span></td>
-			<td><span th:text="${material.tipo}"></span></td>
-			<td><span th:text="${material.decomposicao}"></span></td>
-			<td><span th:text="${material.reciclado}"></span></td>
-			<td><span th:text="${material.empresa.nome}"></span></td>
-			<td ><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('MC#deletarMaterial').arg(0, material.id)).build()}"><i class="material-icons prefix">delete</i></a></td>
-		
-		</tr>
-		</tbody>
-		
-		   
-		
-	</table>
+	<nav class="#ffffff white">
+		<div class="imgreciclap">
+			<center>
+				<img src="img/reciclaplogo.png" width="130px" alt="">
+			</center>
+		</div>
+	</nav>
 
-</div>	
-	
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<div class="tela">
+		<h3>
+			<a href="/CadastraMaterial" class="waves-effect waves-light btn"><i
+				class="material-icons right">add_circle_outline</i>Adicionar Produto
+				Reciclavel</a>
+		</h3>
+
+		<table class="striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Composição</th>
+					<th>Tipo de Reciclagem</th>
+					<th>Decomposição</th>
+					<th>Reciclado</th>
+					<th>Empresa Responsavel</th>
+					<th>Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="material : ${materiais}">
+					<td><span th:text="${material.id}"></span></td>
+					<td><a
+						th:href="${(#mvc.url('MC#updateMaterial').arg(0, material.id)).build()}"><span
+							th:text="${material.nome}"></span></a></td>
+					<td><span th:text="${material.composicao}"></span></td>
+					<td><span th:text="${material.tipo}"></span></td>
+					<td><span th:text="${material.decomposicao}"></span></td>
+					<td><span th:text="${material.reciclado}"></span></td>
+					<td><span th:text="${material.empresa.nome}"></span></td>
+					<td><a class="waves-effect waves-light btn-small"
+						th:href="${(#mvc.url('MC#deletarMaterial').arg(0, material.id)).build()}"><i
+							class="material-icons prefix">delete</i></a></td>
+
+				</tr>
+			</tbody>
+
+
+
+		</table>
+
+	</div>
+
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<!--JavaScript at end of body for optimized loading-->
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 

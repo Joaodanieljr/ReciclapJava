@@ -38,7 +38,7 @@
 
 		<th:block th:include="mensagemValidacao"></th:block>
 
-		<form th:object="${material}" method="post">
+		<form th:object="${empresa}" method="post">
 
 			<table border="0" cellpadding="10">
 				<tr>
@@ -52,30 +52,30 @@
 				</tr>
 				<tr>
 					<td>Brand:</td>
-					<td><input type="text" th:field="*{composicao}"
-						name="composicao" /></td>
+					<td><input type="text" th:field="*{email}" name="email" /></td>
 				</tr>
 				<tr>
 					<td>Made In:</td>
-					<td><input type="text" th:field="*{tipo}" name="tipo" /></td>
+					<td><input type="text" th:field="*{senha}" name="senha" /></td>
 				</tr>
 				<tr>
 					<td>Price:</td>
-					<td><input type="text" th:field="*{decomposicao}"
-						name="decomposicao" /></td>
+					<td><input type="text" th:field="*{cnpj}" name="cnpj" /></td>
 				</tr>
 
 				<tr>
 					<td>Reciclado:</td>
-					<td><input type="text" th:field="*{reciclado}"
-						name="reciclado" /></td>
+					<td><input type="text" th:field="*{cep}" name="cep" /></td>
+				</tr>
+				<tr>
+					<td>Reciclado:</td>
+					<td><input type="text" th:field="*{estado}" name="estado" /></td>
+				</tr>
+				<tr>
+					<td>Reciclado:</td>
+					<td><input type="text" th:field="*{telefone}" name="telefone" /></td>
 				</tr>
 
-				<tr>
-					<td>codigo empresa:</td>
-					<td><input type="long" name="codigo" th:field="*{empresa.id}"
-						th:value="*{empresa.id}" readonly="readonly" /></td>
-				</tr>
 				<tr>
 					<td colspan="2"><button type="submit">Save</button></td>
 				</tr>
@@ -83,8 +83,6 @@
 		</form>
 
 	</div>
-
-
 
 </body>
 </html>
