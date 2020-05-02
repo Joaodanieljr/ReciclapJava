@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "TB_EMPRESA")
 public class Empresa implements Serializable {
@@ -46,6 +48,7 @@ public class Empresa implements Serializable {
 	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
 	private List<Material> materiais;
 
+	@JsonBackReference
 	public List<Material> getMateriais() {
 		return materiais;
 	}
